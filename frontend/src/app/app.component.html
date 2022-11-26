@@ -1,0 +1,98 @@
+<div [ngClass]="collapseNavigation ? 'collapseContent' : 'content'">
+  <header class="header">
+    <div class="header-search">
+      <input
+        class="header-search__input"
+        name="textarea-search"
+        cols="70"
+        rows="1"
+        placeholder="Procurar..."
+      />
+      <button class="header-search__button">
+        <img src="./assets/images/search.png" alt="" />
+      </button>
+    </div>
+
+    <div class="header-info-group">
+      <div class="header-info-group__info">
+        <img src="./assets/images/mail.png" alt="" *ngIf="mail" />
+        <img src="./assets/images/mailNo.png" alt="" *ngIf="!mail" />
+        <img src="./assets/images/bell.png" alt="" *ngIf="notification" />
+        <img src="./assets/images/bellNo.png" alt="" *ngIf="!notification" />
+      </div>
+
+      <div class="header-info-group__user">
+        <div class="elipse">
+          <img src="./assets/images/avatar.png" alt="" />
+        </div>
+
+        <div class="header-info-group__use--permission">
+          <span id="name">{{ userName }}</span>
+          <span id="permission">{{ perfilUser }}</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+  <footer class="footer"></footer>
+</div>
+
+<aside>
+  <div [ngClass]="collapseNavigation ? 'collapseNavigation' : 'navigation'">
+    <div class="navigation-toggle" (click)="collapse()">
+      <span>+</span>
+    </div>
+    <a
+      ><img
+        class="logo"
+        src="../assets/images/logo.png"
+        alt="logo"
+        srcset=""
+        routerLink=""
+    /></a>
+    <ul>
+      <li class="list">
+        <b></b>
+        <b></b>
+        <span class="icon icon__dash"></span>
+        <span class="title">Dashboard</span>
+      </li>
+
+      <li class="list">
+        <b></b>
+        <b></b>
+        <span class="icon icon__adm"></span>
+        <span class="title">Admin</span>
+      </li>
+
+      <li class="list active" routerLink="">
+        <b></b>
+        <b></b>
+        <span class="icon icon__ergo"></span>
+        <span class="title">ErgoEasy</span>
+      </li>
+
+      <li class="list">
+        <b></b>
+        <b></b>
+        <span class="icon icon__safety"></span>
+        <span class="title">SafetyEasy</span>
+      </li>
+      <li class="list">
+        <b></b>
+        <b></b>
+        <span class="icon icon__manager"></span>
+        <span class="title">ManagerEasy</span>
+      </li>
+    </ul>
+
+    <div class="navigation__footer">
+      <button class="button__sair" (click)="logout()">Sair</button>
+      <br />
+      <span class="regis">&copy; 2022 GRO - ErgoEasy</span>
+    </div>
+  </div>
+</aside>

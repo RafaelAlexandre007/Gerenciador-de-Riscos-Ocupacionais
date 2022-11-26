@@ -1,0 +1,60 @@
+<div class="home-content">
+  <div class="home-content__menu">
+    <div class="home-content__menu--item">
+      <img src="../../assets/images/logo-aets.png" alt="" />
+      <span>AET Simplificada</span>
+    </div>
+    <div class="home-content__menu--item">
+      <img src="../../assets/images/logo-aetd.png" alt="" />
+      <span>AET Detalhada</span>
+    </div>
+    <div class="home-content__menu--item">
+      <img src="../../assets/images/logoTools.png" alt="" />
+      <span>AET Ferramentas</span>
+    </div>
+    <img
+      class="home-content__menu-logo"
+      src="../../assets/images/ergo-80.svg"
+      alt=""
+    />
+  </div>
+
+  <div class="content-notice">
+    <table class="last_view" cellPadding="0">
+      <caption>
+        {{
+          title
+        }}
+      </caption>
+      <thead>
+        <!-- Nome das Colunas -->
+        <th *ngFor="let element of displayedColumns">{{ element }}</th>
+      </thead>
+      <div class="row"></div>
+      <tbody>
+        <!-- Dados das Colunas -->
+        <tr *ngFor="let element of last_view; index as i">
+          <td>{{ element.id }}</td>
+          <td>{{ element.ghre }}</td>
+          <td>{{ element.tipo }}</td>
+          <td>{{ element.nomeAnalista }}</td>
+          <td>
+            <div class="status_box" [ngClass]="classStatus[i]">
+              {{ element.status }}
+            </div>
+          </td>
+          <td>
+            <div class="edit_box">
+              <button (click)="onClick()">
+                <img src="../../assets/images/list-4.png" alt="" />
+              </button>
+              <button>
+                <img src="../../assets/images/small_edit.png" alt="" />
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

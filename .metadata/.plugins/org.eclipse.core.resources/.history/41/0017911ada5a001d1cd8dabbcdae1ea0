@@ -1,0 +1,19 @@
+spring.jpa.properties.javax.persistence.schema-generation.create-source=metadata
+spring.jpa.properties.javax.persistence.schema-generation.scripts.action=create
+spring.jpa.properties.javax.persistence.schema-generation.scripts.create-target=create.sql
+spring.jpa.properties.hibernate.hbm2ddl.delimiter=;
+
+# DEPLOY HOSTGATOR
+spring.jpa.hibernate.ddl-auto=update
+spring.datasource.url=jdbc:mysql://localhost:3306/br914.hostgator.com.br/ralexa07_ergoeasy
+
+spring.datasource.username=ergoeasy_admin
+spring.datasource.password=bakve3-qudNaj-fubpiq
+spring.jpa.show-sql=true
+
+#DEPLOY POSTEGRES
+#spring.datasource.url=jdbc:postgresql://localhost:5432/ergoeasy
+#spring.datasource.username=postgres
+#spring.datasource.password=ergoeasy2022
+#spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true
+#spring.jpa.hibernate.ddl-auto=none

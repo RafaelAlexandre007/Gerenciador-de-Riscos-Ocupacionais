@@ -1,0 +1,17 @@
+package com.ergoeasy.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ergoeasy.repository.LastViewsRepository;
+
+@Service
+public class LastViewsService {
+	
+	@Autowired
+	final LastViewsRepository lastViewsRepository;
+	
+	public LastViewsService(LastViewsService lastViewsRepository) {
+		this.lastViewsRepository = lastViewsRepository;
+	}
+}

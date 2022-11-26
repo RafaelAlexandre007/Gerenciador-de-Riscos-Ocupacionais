@@ -1,0 +1,253 @@
+.home-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-content__menu {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 95%;
+  height: 221px;
+  background-color: #3a3a5a;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px 5px #3a3a5a;
+  padding-left: 100px;
+  padding-right: 100px;
+
+  margin: 50px 10px 10px 10px;
+}
+
+.home-content__menu img {
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  width: 80px;
+}
+
+.home-content__menu--item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+}
+
+.home-content__menu--item img {
+  position: relative;
+  top: -40px;
+  width: 160px;
+}
+
+.home-content__menu--item img:hover {
+  transition: 0.5s;
+  transform: scale(110%);
+}
+
+.home-content__menu--item span {
+  position: relative;
+  left: 50px;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  color: #ffff;
+}
+
+h1,
+h2 {
+  font-family: "Poppins", sans-serif;
+  color: #ffff;
+}
+
+.content {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  top: 100px;
+  left: 212px;
+  width: 85%;
+  height: 85%;
+  box-shadow: 0px 0px 20px 0px #273a348a;
+  border-radius: 20px;
+}
+
+.menu-content {
+  position: relative;
+  top: 20px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 10px;
+}
+
+.menu-content .menu {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 95%;
+  height: 221px;
+  background-color: #3a3a5a;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px 5px #3a3a5a;
+  padding-left: 100px;
+  padding-right: 100px;
+
+  margin: 10px;
+}
+
+.menu .menu-block {
+  position: relative;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu .menu-block span {
+  position: relative;
+  top: 0px;
+  left: 80px;
+  font-family: "Poppins", sans-serif;
+  color: #ffff;
+  font-weight: bold;
+}
+
+.menu-content img {
+  position: relative;
+  top: -25px;
+  width: 160px;
+  height: 160px;
+  cursor: pointer;
+}
+
+.menu #ergo-80 {
+  position: relative;
+  left: 9%;
+  width: 80px;
+  height: auto;
+}
+
+.content-notice {
+  position: relative;
+  text-align: justify;
+  align-items: center;
+  top: 20px;
+  padding: 20px 10px 20px 10px;
+  margin: 10px 10px;
+  width: auto;
+}
+
+.last_view {
+  width: 1000px;
+  text-align: center;
+  border-collapse: separate;
+  overflow: hidden;
+}
+
+.last_view caption {
+  font-family: "Poppins" sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: start;
+  padding: 10px;
+}
+
+.last_view td {
+  color: #ffff;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.last_view .row {
+  height: 5px;
+  width: 100%;
+}
+.last_view th {
+  color: #ffff;
+  background-color: #4d4d6c;
+  font-weight: normal;
+  text-align: center;
+  padding: 5px;
+  font-size: 16px;
+}
+
+.last_view th:nth-child(1) {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.last_view th:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.last_view td:nth-child(1) {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.last_view td:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.last_view tr:nth-child(odd) {
+  background: #626288;
+}
+
+.last_view tr:nth-child(even) {
+  background: #4d4d6c;
+}
+
+.last_view .status_box {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  width: 110px;
+  height: 24px;
+  border: none;
+  border-radius: 10px;
+}
+
+.status_box--completed {
+  background-color: #2cd158;
+}
+
+.status_box--inProgress {
+  background-color: #579aff;
+}
+
+.status_box--canceled {
+  background-color: #ff5757;
+}
+
+.last_view .edit_box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.last_view img {
+  width: 18.5px;
+  height: 14.85px;
+  cursor: pointer;
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+@media screen and (max-width: 800px) {
+  .home-content__menu--item img:hover {
+    transform: none;
+  }
+}

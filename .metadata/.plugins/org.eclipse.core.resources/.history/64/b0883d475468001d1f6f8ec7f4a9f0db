@@ -1,0 +1,14 @@
+package com.ergoeasy.dto;
+
+public class LastViewsDTO {
+private Long id;
+	
+	private String ghre;
+	
+	private String tipo;
+	
+	private String nomeAnalista;
+	
+	private String status;
+
+}

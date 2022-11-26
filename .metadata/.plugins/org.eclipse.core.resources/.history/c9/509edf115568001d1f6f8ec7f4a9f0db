@@ -1,0 +1,5 @@
+package com.ergoeasy.services;
+
+public class LastViewsService {
+
+}

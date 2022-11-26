@@ -1,0 +1,5 @@
+package com.ergoeasy.dto;
+
+public class LastViewsDTO {
+
+}

@@ -1,0 +1,16 @@
+package com.ergoeasy.dto;
+
+import javax.validation.constraints.NotBlank;
+
+public class LastViewsDTO {
+	
+	@NotBlank
+	private String ghre;
+	@NotBlank
+	private String tipo;
+	@NotBlank
+	private String nomeAnalista;
+	@NotBlank
+	private String status;
+
+}

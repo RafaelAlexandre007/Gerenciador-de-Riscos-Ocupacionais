@@ -1,0 +1,102 @@
+package com.ergoeasy.controller;
+
+
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ergoeasy.entities.LastViews;
+import com.ergoeasy.repository.LastViewsRepository;
+
+@RestController
+public class LastViewsController {
+	
+	@Autowired
+	LastViewsRepository lastViewsRepository;
+	
+	@GetMapping("/views")
+	public
+	ResponseEntity<List<LastViews>> getAllViews(){
+		
+		List<LastViews> viewsList = lastViewsRepository.findAll();
+		
+		if(!viewsList.isEmpty()) {
+			for(LastViews view : viewsList) {
+				Long id = view.getId();
+				
+				view.add(linkTo(methodOn(LastViewsController.class).getOneView(id)).withSelfRel(),
+						linkTo(methodOn(LastViewsController.class).getAllViews()).withRel("Views List"));
+			}
+		}
+		return new 
+				ResponseEntity<List<LastViews>>(viewsList, HttpStatus.OK);
+		
+	}
+	
+	@PostMapping("/views")
+	public
+	ResponseEntity<LastViews> saveView(@RequestBody LastViews view) {
+		return new ResponseEntity<LastViews>(lastViewsRepository.save(view), HttpStatus.CREATED);
+	}
+	
+	@GetMapping("/views/{id}")
+	public
+	ResponseEntity<LastViews> getOneView(@PathVariable(value="id") Long id) {
+		
+		Optional<LastViews> view = lastViewsRepository.findById(id);
+		if(view.isEmpty()) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		
+		view.get().add(
+				linkTo(methodOn(LastViewsController.class).getOneView(id)).withSelfRel(),
+				linkTo(methodOn(LastViewsController.class).getAllViews()).withRel("Views List"));
+		
+		return new ResponseEntity<LastViews>(view.get(), HttpStatus.OK);
+	}
+	
+	@PutMapping("/views/{id}")
+	public
+	ResponseEntity<LastViews> updateView(@PathVariable(value="id") Long id, @RequestBody LastViews view){
+		
+		Optional<LastViews> viewUp = lastViewsRepository.findById(id);
+		if(viewUp.isEmpty()) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		view.setId(viewUp.get().getId());
+		return new ResponseEntity<LastViews>(lastViewsRepository.save(view), HttpStatus.OK);
+
+	}
+
+	
+	@DeleteMapping("/views/{id}")
+	public
+	ResponseEntity<?> deleteView(@PathVariable(value="id") Long id) {
+		Optional<LastViews> view = lastViewsRepository.findById(id);
+		
+		if(view.isEmpty()) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		
+		lastViewsRepository.delete(view.get());
+		
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	
+}
+
+	
+

@@ -1,0 +1,1 @@
+function sidebarSelector(){let l=document.querySelectorAll(".list");for(let e=0;e<l.length;e++)l[e].onclick=function(){let t=0;for(;t<l.length;)l[t++].className="list";l[e].className="list active"}}
